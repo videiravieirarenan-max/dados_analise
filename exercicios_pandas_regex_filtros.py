@@ -13,9 +13,7 @@ Regra da aula:
 - Resolva um exercicio por vez.
 """
 
-import pandas as pd
-arquivo = "cadastro_alunos.xlsx"
-df = pd.read_excel(arquivo)
+
 # ---------------------------------------------
 # EXERCICIO 1
 # ---------------------------------------------
