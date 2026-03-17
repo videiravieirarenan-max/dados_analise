@@ -32,7 +32,7 @@ Fluxo básico:
 4. Converter para JSON
 5. Transformar em DataFrame (quando necessário)
 """
-import as requests
+import requests
 import pandas as pd
 url="viacep.com.br/ws/01001000/json/"
 
@@ -128,6 +128,14 @@ Exercícios:
 4. Transforme em DataFrame.
 """
 # RESOLVA AQUI:
+url="http://www.ipeadata.gov.br/api/odata4/metadados/"
+response=requests.get(url)
+response.status_code
+response.json()
+dados=dados["value"]
+df=pd.dataframe(dados)
+df=df["sercodigo","sernomne","sercomentario"]
+
 
 
 
@@ -154,6 +162,17 @@ Exercícios:
 4. Plote gráfico de linha.
 """
 # RESOLVA AQUI:
+codigo = 4189
+url=f"https://api.bcb.gov.br/dados/serie/bcdatas.sgs.{codigo}/dados"
+params = {
+ "formato": "json",
+ "dataInicial": "01/01/2024",
+ "dataFinalcotacao": "31/12/2024"
+}
+response=requests.get(url,params=params)
+response.status_code
+dados=response.json()
+df= pd.DataFrame(dados)
 
 
 
